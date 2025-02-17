@@ -1,14 +1,13 @@
 "use client";
 
 import { Box, Container, VStack } from "@chakra-ui/react";
-
+import { colors } from "@/ds/theme";
+import { layoutConstants } from "@/ds/theme/foundations/config";
 import { HeroSection } from "./components/HeroSection";
 import { KeyMetrics } from "./components/KeyMetrics";
 import { NetworkAvailability } from "./components/NetworkAvailability";
 import { PriceChart } from "./components/PriceChart";
 import { TokenUtility } from "./components/TokenUtility";
-import { colors } from "../theme";
-import { layoutConstants } from "./components/configDesign";
 
 export const TokenPage = () => {
 	const cardBg = "whiteAlpha.50";

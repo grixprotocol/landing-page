@@ -1,4 +1,4 @@
-import { colors } from './colors.theme';
+import { colors } from "@/ds/theme/components/colors.theme";
 
 export const badgeTheme = {
   baseStyle: {
