@@ -9,7 +9,6 @@ export const foundations = {
 			},
 		},
 	},
-	borders: { "1px": `1px solid ${colors.gray[900]}` },
 	colors,
 	fonts: {
 		heading: "'Poppins', sans-serif",
@@ -34,4 +33,4 @@ export const foundations = {
 	},
 };
 
-export * from "./config";
+ 

@@ -18,7 +18,7 @@ import Head from "next/head";
 import { colors } from "@/ds/theme";
 
 import { PillarMarketplace } from "./components/PillarMarketplace";
-import { NetworkAvailability } from "./NetworkAvailability";
+import { NetworkAvailability } from "./components/NetworkAvailability";
 import { FaCheckCircle } from "react-icons/fa";
 
 const GRIX_UNISWAP_LINK =
