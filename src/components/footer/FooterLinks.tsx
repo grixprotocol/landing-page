@@ -41,8 +41,8 @@ export const FooterLinks = () => {
 		<Flex
 			width="100%"
 			justify="space-between"
-			px={{ base: 3, md: 5 }}
-			py={4}
+			px={{ base: 4, md: 6 }}
+			py={5}
 			bg="rgba(0, 0, 0, 0.6)"
 			backdropFilter="blur(16px)"
 			borderTop="1px solid"
@@ -50,22 +50,29 @@ export const FooterLinks = () => {
 			data-gr-ext-installed={undefined}
 			data-new-gr-c-s-check-loaded={undefined}
 		>
-			<HStack spacing={{ base: 2, md: 4 }}>
-				<Text fontSize={{ base: "11px", md: "13px" }} fontWeight="500" color="gray.400">
+			<HStack spacing={{ base: 3, md: 5 }}>
+				<Text fontSize={{ base: "12px", md: "14px" }} fontWeight="500" color="gray.400">
 					© Grix® 2024
 				</Text>
-				<HStack spacing={2}>
-					{socialLinks.map(({ icon, label, href }) => (
+				<HStack spacing={{ base: 3, md: 4 }}>
+					{socialLinks.map(({ icon, label, href }) =>
 						isClient ? (
-							<Tooltip key={label} label={label} hasArrow placement="top" bg="gray.700">
+							<Tooltip
+								key={label}
+								label={label}
+								hasArrow
+								placement="top"
+								bg="gray.700"
+								fontSize="sm"
+							>
 								<IconButton
-									size="sm"
+									size="md"
 									variant="ghost"
 									color="gray.400"
 									bg="whiteAlpha.50"
 									as="a"
 									target="_blank"
-									icon={<Icon as={icon} />}
+									icon={<Icon as={icon} boxSize={5} />}
 									aria-label={label}
 									href={href}
 									_hover={{
@@ -79,13 +86,13 @@ export const FooterLinks = () => {
 						) : (
 							<IconButton
 								key={label}
-								size="sm"
+								size="md"
 								variant="ghost"
 								color="gray.400"
 								bg="whiteAlpha.50"
 								as="a"
 								target="_blank"
-								icon={<Icon as={icon} />}
+								icon={<Icon as={icon} boxSize={5} />}
 								aria-label={label}
 								href={href}
 								_hover={{
@@ -96,11 +103,11 @@ export const FooterLinks = () => {
 								transition="all 0.2s"
 							/>
 						)
-					))}
+					)}
 				</HStack>
 			</HStack>
 		</Flex>
 	);
 };
 
- export default FooterLinks;
+export default FooterLinks;

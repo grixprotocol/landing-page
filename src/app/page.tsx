@@ -1,16 +1,15 @@
 "use client";
 
-import { Box } from "@chakra-ui/react";
+ import { Box } from "@chakra-ui/react";
 import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
 import { TokenPage } from "@/components/TokenPage";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 
 export default function Page() {
-	const Footer = dynamic(() => import("@/components/footer").then((mod) => mod.Footer), {
-		ssr: false,
-	});
+		const Footer = dynamic(() => import("@/components/footer").then((mod) => mod.Footer), {
+			ssr: false,
+		});
 	return (
 		<Box>
 			<Header />
