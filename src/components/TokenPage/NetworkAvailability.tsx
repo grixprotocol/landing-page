@@ -53,9 +53,6 @@ export const NetworkAvailability = ({ cardBg, cardHoverBg, borderColor }: Networ
 
   return (
     <Box>
-      <Heading size="lg" mb={8} letterSpacing="tight">
-        Available Networks
-      </Heading>
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
         {networks.map((network, index) => (
           <MotionBox

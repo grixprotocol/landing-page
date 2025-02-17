@@ -17,6 +17,9 @@ importers:
       '@emotion/react':
         specifier: ^11.14.0
         version: 11.14.0(@types/react@19.0.9)(react@19.0.0)
+      '@emotion/styled':
+        specifier: ^11.11.0
+        version: 11.14.0(@emotion/react@11.14.0(@types/react@19.0.9)(react@19.0.0))(@types/react@19.0.9)(react@19.0.0)
       framer-motion:
         specifier: ^12.4.3
         version: 12.4.3(@emotion/is-prop-valid@1.3.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -32,10 +35,10 @@ importers:
       react-icons:
         specifier: ^5.4.0
         version: 5.4.0(react@19.0.0)
+      react-intersection-observer:
+        specifier: ^9.8.0
+        version: 9.15.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
     devDependencies:
-      '@eslint/eslintrc':
-        specifier: ^3
-        version: 3.2.0
       '@types/node':
         specifier: ^20
         version: 20.17.19
@@ -1490,6 +1493,15 @@ packages:
     resolution: {integrity: sha512-7eltJxgVt7X64oHh6wSWNwwbKTCtMfK35hcjvJS0yxEAhPM8oUKdS3+kqaW1vicIltw+kR2unHaa12S9pPALoQ==}
     peerDependencies:
       react: '*'
+
+  react-intersection-observer@9.15.1:
+    resolution: {integrity: sha512-vGrqYEVWXfH+AGu241uzfUpNK4HAdhCkSAyFdkMb9VWWXs6mxzBLpWCxEy9YcnDNY2g9eO6z7qUtTBdA9hc8pA==}
+    peerDependencies:
+      react: ^17.0.0 || ^18.0.0 || ^19.0.0
+      react-dom: ^17.0.0 || ^18.0.0 || ^19.0.0
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -3484,6 +3496,12 @@ snapshots:
   react-icons@5.4.0(react@19.0.0):
     dependencies:
       react: 19.0.0
+
+  react-intersection-observer@9.15.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+    dependencies:
+      react: 19.0.0
+    optionalDependencies:
+      react-dom: 19.0.0(react@19.0.0)
 
   react-is@16.13.1: {}
 
