@@ -258,11 +258,7 @@ export const TokenPage = () => {
 
 						{/* Network Availability Section */}
 						<section aria-label="Network Availability">
-							<NetworkAvailability
-								cardBg={cardBg}
-								cardHoverBg={cardHoverBg}
-								borderColor={borderColor}
-							/>
+							<NetworkAvailability borderColor={borderColor} />
 						</section>
 					</VStack>
 				</Container>
