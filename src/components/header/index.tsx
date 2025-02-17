@@ -62,9 +62,10 @@ export const Header = () => (
 				href={APP_LINK}
 				target="_blank"
 				bgGradient="linear(to-r, blue.400, teal.400)"
-				size="md"
-				px={8}
-				height="40px"
+				size={{ base: "sm", md: "md" }}
+				px={{ base: 4, md: 8 }}
+				height={{ base: "32px", md: "40px" }}
+				fontSize={{ base: "sm", md: "md" }}
 				color="white"
 				_hover={{
 					transform: "translateY(-2px)",
