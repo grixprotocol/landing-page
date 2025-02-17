@@ -1,9 +1,11 @@
 "use client";
 
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, Button } from "@chakra-ui/react";
 import Link from "next/link";
 import Image from "next/image";
 import GrixLogoImg from "../../../public/GrixLogo.svg";
+
+const APP_LINK = "https://app.grix.finance/trade";
 
 export const Header = () => (
 	<Box
@@ -30,7 +32,7 @@ export const Header = () => (
 			px={{ base: 4, md: 6 }}
 			h="100%"
 			align="center"
-			justify="flex-start"
+			justify="space-between"
 		>
 			<Link href="/" passHref>
 				<Box
@@ -55,6 +57,24 @@ export const Header = () => (
 					/>
 				</Box>
 			</Link>
+			<Button
+				as="a"
+				href={APP_LINK}
+				target="_blank"
+				bgGradient="linear(to-r, blue.400, teal.400)"
+				size="md"
+				px={8}
+				height="40px"
+				color="white"
+				_hover={{
+					transform: "translateY(-2px)",
+					bgGradient: "linear(to-r, blue.500, teal.500)",
+					boxShadow: "0 4px 20px rgba(66, 153, 225, 0.4)",
+				}}
+				transition="all 0.3s"
+			>
+				Launch App
+			</Button>
 		</Flex>
 	</Box>
 );
