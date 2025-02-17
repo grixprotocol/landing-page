@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { Providers } from "./providers";
+import Script from "next/script";
 
 const geist = Geist({
 	subsets: ["latin"],
@@ -92,6 +93,18 @@ export default function RootLayout({
 			<head>
 				<link rel="icon" href="/GrixLogoV2.svg" type="image/svg+xml" />
 				<link rel="apple-touch-icon" href="/apple-icon.png" />
+				<Script
+					src="https://www.googletagmanager.com/gtag/js?id=G-400528782"
+					strategy="afterInteractive"
+				/>
+				<Script id="google-analytics" strategy="afterInteractive">
+					{`
+						window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag('js', new Date());
+						gtag('config', 'G-400528782');
+					`}
+				</Script>
 			</head>
 			<body className={geist.className}>
 				<Providers>{children}</Providers>
