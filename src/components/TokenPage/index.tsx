@@ -13,7 +13,6 @@ import {
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import Head from "next/head";
 
 import { colors } from "@/ds/theme";
 
@@ -85,13 +84,6 @@ export const TokenPage = () => {
 
 	return (
 		<>
-			<Head>
-				<title>GRIX Token - Universal DeFi Derivatives Toolkit</title>
-				<meta
-					name="description"
-					content="Empower your DeFi experience with GRIX Token's universal derivatives toolkit"
-				/>
-			</Head>
 			<Box
 				as="main"
 				role="main"
@@ -230,13 +222,10 @@ export const TokenPage = () => {
 							</SimpleGrid>
 						</section>
 
-						{/* Action Buttons Section */}
+						{/* Action Buttons Section - Modified to show only Launch App */}
 						<section aria-label="Call to Action">
 							<VStack spacing={6} align="center">
-								<HStack spacing={6}>
-									<ActionButton href={GRIX_UNISWAP_LINK}>Buy GRIX</ActionButton>
-									<ActionButton href={APP_LINK}>Launch App</ActionButton>
-								</HStack>
+								<ActionButton href={APP_LINK}>Launch App</ActionButton>
 							</VStack>
 						</section>
 
