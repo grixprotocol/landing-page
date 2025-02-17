@@ -222,10 +222,11 @@ export const TokenPage = () => {
 							</SimpleGrid>
 						</section>
 
-						{/* Action Buttons Section - Modified to show only Launch App */}
-						<section aria-label="Call to Action">
+						{/* Action Buttons Section - Removed */}
+						{/* Final CTA Section */}
+						<section aria-label="Final Call to Action">
 							<VStack spacing={6} align="center">
-								<ActionButton href={APP_LINK}>Launch App</ActionButton>
+								<ActionButton href={GRIX_UNISWAP_LINK}>Buy GRIX</ActionButton>
 							</VStack>
 						</section>
 
@@ -236,13 +237,6 @@ export const TokenPage = () => {
 								cardHoverBg={cardHoverBg}
 								borderColor={borderColor}
 							/>
-						</section>
-
-						{/* Final CTA Section */}
-						<section aria-label="Final Call to Action">
-							<VStack spacing={6} align="center">
-								<ActionButton href={GRIX_UNISWAP_LINK}>Buy GRIX</ActionButton>
-							</VStack>
 						</section>
 
 						{/* Network Availability Section */}
