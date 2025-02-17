@@ -1,0 +1,42 @@
+name: Deploy to Amazon S3
+
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch:
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+
+            - uses: pnpm/action-setup@v3
+              with:
+                  version: 9
+
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: "pnpm"
+
+            - name: Install dependencies
+              run: pnpm install
+
+            - name: Build
+              run: pnpm run build
+              env:
+                  VITE_ENV: "dev"
+                  VITE_WHITELIST_MODE: true
+            - name: Deploy to S3
+              uses: jakejarvis/s3-sync-action@v0.5.1
+              with:
+                  args: --acl public-read --follow-symlinks --delete
+              env:
+                  AWS_S3_BUCKET: next.grix.finance
+                  AWS_ACCESS_KEY_ID: ${{ secrets.S3_DEPLOYER_AWS_ACCESS_KEY_ID }}
+                  AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_DEPLOYER_AWS_SECRET_ACCESS_KEY }}
+                  AWS_REGION: us-east-1
+                  SOURCE_DIR: "out"
