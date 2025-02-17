@@ -22,7 +22,6 @@ import { FaCheckCircle } from "react-icons/fa";
 
 const GRIX_UNISWAP_LINK =
 	"https://app.uniswap.org/#/swap?outputCurrency=0xa150376112dd24E873086b51347EddD5F2e147D5"; // ETH GRIX address
-const APP_LINK = "https://app.grix.finance/trade";
 
 const ActionButton = ({
 	children,
