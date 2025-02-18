@@ -7,7 +7,8 @@
 		"build": "next build",
 		"export": "next export",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "next lint",
+		"test": "next lint && next build"
 	},
 	"dependencies": {
 		"@chakra-ui/react": "2.10.4",
@@ -22,6 +23,7 @@
 		"react-intersection-observer": "^9.8.0"
 	},
 	"devDependencies": {
+		"@eslint/eslintrc": "^3.2.0",
 		"@types/node": "^20",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
