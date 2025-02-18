@@ -15,14 +15,13 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 import { colors } from "@/ds/theme";
+import { DEFAULT_TRADE_LINK } from "@/config/links";
 
 import { PillarMarketplace } from "./components/PillarMarketplace";
 import { NetworkAvailability } from "./components/NetworkAvailability";
 import { FaCheckCircle } from "react-icons/fa";
 
-const GRIX_UNISWAP_LINK =
-	"https://app.uniswap.org/#/swap?outputCurrency=0xa150376112dd24E873086b51347EddD5F2e147D5"; // ETH GRIX address
-
+ 
 const ActionButton = ({
 	children,
 	href,
@@ -225,7 +224,7 @@ export const TokenPage = () => {
 						{/* Final CTA Section */}
 						<section aria-label="Final Call to Action">
 							<VStack spacing={6} align="center">
-								<ActionButton href={GRIX_UNISWAP_LINK}>Buy GRIX</ActionButton>
+								<ActionButton href={DEFAULT_TRADE_LINK}>Buy GRIX</ActionButton>
 							</VStack>
 						</section>
 
