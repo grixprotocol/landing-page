@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import { GRIX_ADDRESSES, links } from "@/config";
 
 const MotionBox = motion(Box);
 
@@ -21,39 +22,35 @@ type NetworkAvailabilityProps = {
 };
 
 export const NetworkAvailability = ({ borderColor }: NetworkAvailabilityProps) => {
-	const GRIX_WORMHOLE_ADDRESS = "E8iWdPoeVDHJn1EHifeCAFWvKZyTN9WXrmccFEx1Hxa";
-	const GRIX_ETH_ADDRESS = "0xa150376112dd24E873086b51347EddD5F2e147D5";
-	const GRIX_ARBITRUM_ADDRESS = "0x812F2D5Ff6088ed7A655567dBcDf0d42cf07ca38";
-
 	const networks = [
 		{
 			network: "Ethereum",
 			features: ["Cross-chain bridging", "Enhanced security", "Network stability"],
-			address: GRIX_ETH_ADDRESS,
-			scanUrl: `https://etherscan.io/token/${GRIX_ETH_ADDRESS}`,
+			address: GRIX_ADDRESSES.ethereum,
+			scanUrl: links.scan.ethereum,
 		},
 		{
 			network: "Arbitrum",
 			features: ["Low transaction fees", "Fast settlements", "High liquidity pools"],
-			address: GRIX_ARBITRUM_ADDRESS,
-			scanUrl: `https://arbiscan.io/token/${GRIX_ARBITRUM_ADDRESS}`,
+			address: GRIX_ADDRESSES.arbitrum,
+			scanUrl: links.scan.arbitrum,
 			tradeButton: {
-				href: `https://app.camelot.exchange/?token2=${GRIX_ARBITRUM_ADDRESS}&swap=v2`,
+				href: links.trade.arbitrum,
 				text: "Trade on Camelot",
 			},
 		},
 		{
 			network: "Solana",
 			features: ["Ultra-fast execution", "Minimal fees", "Advanced trading options"],
-			address: GRIX_WORMHOLE_ADDRESS,
-			scanUrl: `https://solscan.io/token/${GRIX_WORMHOLE_ADDRESS}`,
+			address: GRIX_ADDRESSES.solana,
+			scanUrl: links.scan.solana,
 			tradeButtons: [
 				{
-					href: `https://raydium.io/swap/?outputMint=${GRIX_WORMHOLE_ADDRESS}&inputMint=sol`,
+					href: links.trade.solana.raydium,
 					text: "Raydium",
 				},
 				{
-					href: `https://jup.ag/swap/SOL-${GRIX_WORMHOLE_ADDRESS}`,
+					href: links.trade.solana.jupiter,
 					text: "Jupiter",
 					outline: true,
 				},
