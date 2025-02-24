@@ -16,6 +16,7 @@ import { useInView } from "react-intersection-observer";
 
 import { colors } from "@/ds/theme";
 import { DEFAULT_TRADE_LINK } from "@/config/links";
+import { analytics } from "@/services/analytics";
 
 import { PillarMarketplace } from "./components/PillarMarketplace";
 import { NetworkAvailability } from "./components/NetworkAvailability";
@@ -79,6 +80,13 @@ export const TokenPage = () => {
 		threshold: 0.1,
 		triggerOnce: true,
 	});
+
+	const handleFeatureClick = (feature: string, index: number) => {
+		analytics.trackPageInteraction(`feature_click`, {
+			feature_name: feature,
+			position: index + 1
+		});
+	};
 
 	return (
 		<>
@@ -202,9 +210,11 @@ export const TokenPage = () => {
 											bg: cardHoverBg,
 											transform: "translateY(-2px)",
 											boxShadow: "0 4px 20px rgba(66, 153, 225, 0.2)",
+											cursor: 'pointer'
 										}}
 										transition="all 0.3s"
 										role="listitem"
+										onClick={() => handleFeatureClick(item, index)}
 									>
 										<Icon
 											as={FaCheckCircle}
@@ -220,11 +230,19 @@ export const TokenPage = () => {
 							</SimpleGrid>
 						</section>
 
-						{/* Action Buttons Section - Removed */}
 						{/* Final CTA Section */}
 						<section aria-label="Final Call to Action">
 							<VStack spacing={6} align="center">
-								<ActionButton href={DEFAULT_TRADE_LINK}>Buy GRIX</ActionButton>
+								<ActionButton 
+									href={DEFAULT_TRADE_LINK}
+									onClick={() => {
+										analytics.trackPageInteraction('buy_grix_click', {
+											section: 'cta'
+										});
+									}}
+								>
+									Buy GRIX
+								</ActionButton>
 							</VStack>
 						</section>
 

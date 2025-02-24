@@ -14,6 +14,7 @@ import {
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { GRIX_ADDRESSES, links } from "@/config";
+import { analytics } from '../../../services/analytics';
 
 const MotionBox = motion(Box);
 
@@ -28,6 +29,10 @@ export const NetworkAvailability = ({ borderColor }: NetworkAvailabilityProps) =
 			features: ["Cross-chain bridging", "Enhanced security", "Network stability"],
 			address: GRIX_ADDRESSES.ethereum,
 			scanUrl: links.scan.ethereum,
+			tradeButton: {
+				href: links.trade.ethereum,
+				text: "Trade on Uniswap",
+			},
 		},
 		{
 			network: "Arbitrum",
@@ -58,6 +63,31 @@ export const NetworkAvailability = ({ borderColor }: NetworkAvailabilityProps) =
 		},
 	];
 
+	const handleNetworkBoxClick = (network: string) => {
+		analytics.trackPageInteraction('network_box_click', {
+			network,
+			section: 'network_availability'
+		});
+	};
+
+	const handleAddressClick = (network: string, address: string) => {
+		analytics.trackPageInteraction('network_address_click', {
+			network,
+			address,
+			section: 'network_availability',
+			action: 'view_contract'
+		});
+	};
+
+	const handleTradeClick = (network: string, exchange: string) => {
+		analytics.trackPageInteraction('network_trade_click', {
+			network,
+			exchange,
+			section: 'network_availability',
+			action: 'trade'
+		});
+	};
+
 	return (
 		<Box>
 			<SimpleGrid columns={{ base: 1, md: 3 }} spacing={6}>
@@ -72,6 +102,7 @@ export const NetworkAvailability = ({ borderColor }: NetworkAvailabilityProps) =
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ delay: 0.2 * (index + 1) }}
+						onClick={() => handleNetworkBoxClick(network.network)}
 						sx={{
 							backdropFilter: "blur(16px)",
 							_hover: {
@@ -80,6 +111,7 @@ export const NetworkAvailability = ({ borderColor }: NetworkAvailabilityProps) =
 								boxShadow: "0 8px 28px rgba(0, 0, 0, 0.4)",
 								borderColor: "whiteAlpha.400",
 								transition: "all 0.3s ease-in-out",
+								cursor: "pointer"
 							},
 						}}
 					>
@@ -123,6 +155,10 @@ export const NetworkAvailability = ({ borderColor }: NetworkAvailabilityProps) =
 									transform: "translateY(-1px)",
 								}}
 								transition="all 0.2s"
+								onClick={(e) => {
+									e.stopPropagation();
+									handleAddressClick(network.network, network.address);
+								}}
 							>
 								<HStack spacing={2}>
 									<Text>{`${network.address.slice(
@@ -146,6 +182,10 @@ export const NetworkAvailability = ({ borderColor }: NetworkAvailabilityProps) =
 										bgGradient: "linear(to-r, blue.500, teal.500)",
 										transform: "translateY(-2px)",
 										boxShadow: "0 6px 20px rgba(66, 153, 225, 0.4)",
+									}}
+									onClick={(e) => {
+										e.stopPropagation();
+										handleTradeClick(network.network, network.tradeButton.text.split(' ')[2]);
 									}}
 								>
 									{network.tradeButton.text}
@@ -182,6 +222,10 @@ export const NetworkAvailability = ({ borderColor }: NetworkAvailabilityProps) =
 												boxShadow: button.outline
 													? "0 6px 20px rgba(45, 211, 183, 0.2)"
 													: "0 6px 20px rgba(66, 153, 225, 0.4)",
+											}}
+											onClick={(e) => {
+												e.stopPropagation();
+												handleTradeClick(network.network, button.text);
 											}}
 										>
 											{button.text}

@@ -4,6 +4,7 @@ import { Box, Flex, Button } from "@chakra-ui/react";
 import Link from "next/link";
 import Image from "next/image";
 import GrixLogoImg from "../../../public/GrixLogo.svg";
+import { analytics } from "../../services/analytics";
 
 const APP_LINK = "https://app.grix.finance/trade";
 
@@ -67,6 +68,9 @@ export const Header = () => (
 				height={{ base: "32px", md: "40px" }}
 				fontSize={{ base: "sm", md: "md" }}
 				color="white"
+				onClick={() => {
+					analytics.trackLaunchApp('header_button');
+				}}
 				_hover={{
 					transform: "translateY(-2px)",
 					bgGradient: "linear(to-r, blue.500, teal.500)",
