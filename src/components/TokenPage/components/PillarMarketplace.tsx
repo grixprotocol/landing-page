@@ -14,6 +14,7 @@ import {
 import React from 'react';
 import { IconType } from 'react-icons';
 import { FaBalanceScale, FaBolt, FaBrain, FaChartLine, FaChevronDown, FaChevronUp, FaShieldAlt } from 'react-icons/fa';
+import { analytics } from '../../../services/analytics';
 
 type PillarMarketplaceProps = {
   cardBg: string;
@@ -128,8 +129,26 @@ export const PillarMarketplace = ({ cardBg, cardHoverBg, borderColor }: PillarMa
 
   const [openFeatures, setOpenFeatures] = React.useState<string[]>([]);
 
-  const toggleFeatures = (badge: string) => {
-    setOpenFeatures((prev) => (prev.includes(badge) ? prev.filter((b) => b !== badge) : [...prev, badge]));
+  const handlePillarClick = (item: PillarItem) => {
+    analytics.trackPageInteraction('pillar_click', {
+      pillar_name: item.title,
+      unlock_requirement: item.unlockRequirement,
+      total_staked: item.totalStaked,
+      agent_interactions: item.agentInteractions
+    });
+  };
+
+  const toggleFeatures = (item: PillarItem) => {
+    const isCurrentlyOpen = openFeatures.includes(item.title);
+    setOpenFeatures((prev) => 
+      isCurrentlyOpen ? prev.filter((b) => b !== item.title) : [...prev, item.title]
+    );
+
+    analytics.trackPageInteraction('pillar_features_toggle', {
+      pillar_name: item.title,
+      action: isCurrentlyOpen ? 'hide' : 'show',
+      unlock_requirement: item.unlockRequirement
+    });
   };
 
   return (
@@ -175,11 +194,13 @@ export const PillarMarketplace = ({ cardBg, cardHoverBg, borderColor }: PillarMa
             position="relative"
             overflow="hidden"
             role="group"
+            onClick={() => handlePillarClick(item)}
             _hover={{
               bg: cardHoverBg,
               transform: 'translateY(-4px)',
               boxShadow: `0 12px 40px -8px ${item.color}30`,
               borderColor: `${item.color}.400`,
+              cursor: 'pointer'
             }}
             transition="all 0.3s ease"
           >
@@ -214,7 +235,10 @@ export const PillarMarketplace = ({ cardBg, cardHoverBg, borderColor }: PillarMa
                   size="sm"
                   variant="ghost"
                   colorScheme={item.color}
-                  onClick={() => toggleFeatures(item.title)}
+                  onClick={(e) => {
+                    e.stopPropagation(); // Prevent triggering the parent box click
+                    toggleFeatures(item);
+                  }}
                   width="full"
                   rightIcon={<Icon as={openFeatures.includes(item.title) ? FaChevronUp : FaChevronDown} />}
                 >

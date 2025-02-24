@@ -5,6 +5,7 @@ import { Box, BoxProps, Flex, HStack, Icon, IconButton, Text, Tooltip } from "@c
 import { FaDiscord, FaGithub, FaMedium, FaTelegram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { SiLinktree } from "react-icons/si";
+import { analytics } from "../../services/analytics";
 
 export const DotSeparator = (props: BoxProps) => (
 	<Box
@@ -36,6 +37,12 @@ export const FooterLinks = () => {
 	useEffect(() => {
 		setIsClient(true);
 	}, []);
+
+	const handleSocialClick = (label: string) => {
+		analytics.trackSocialLink(label.toLowerCase(), {
+			location: 'footer'
+		});
+	};
 
 	return (
 		<Flex
@@ -75,6 +82,7 @@ export const FooterLinks = () => {
 									icon={<Icon as={icon} boxSize={5} />}
 									aria-label={label}
 									href={href}
+									onClick={() => handleSocialClick(label)}
 									_hover={{
 										transform: "translateY(-2px)",
 										bg: "whiteAlpha.100",
@@ -95,6 +103,7 @@ export const FooterLinks = () => {
 								icon={<Icon as={icon} boxSize={5} />}
 								aria-label={label}
 								href={href}
+								onClick={() => handleSocialClick(label)}
 								_hover={{
 									transform: "translateY(-2px)",
 									bg: "whiteAlpha.100",
