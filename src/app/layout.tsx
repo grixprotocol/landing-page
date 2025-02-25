@@ -9,10 +9,11 @@ const geist = Geist({
 
 export const metadata: Metadata = {
 	metadataBase: new URL('https://www.grix.finance'),
-	title: 'GRIX | DeFi Options Aggregator',
-	description: 'Unified Liquidity protocol for the DeFi options market',
+	title: 'GRIX | Universal DeFi Derivatives Language',
+	description:
+		'The Universal Language for DeFi Derivatives Interactions. Empower your AI agents with battle-tested toolkits for risk management, position optimization, and strategy execution across leading agentic platforms like ElizaOS.',
 	keywords:
-		'DeFi derivatives toolkit, AI trading agents, risk management tools, position optimization, strategy execution, ElizaOS integration, enterprise DeFi, protocol integration, GRIX token, decentralized finance',
+		'DeFi derivatives language, AI trading agents, risk management tools, position optimization, strategy execution, ElizaOS integration, enterprise DeFi, protocol integration, derivatives toolkits, agentic trading, GRIX token, decentralized finance, cross-protocol position tools, market analysis framework',
 	authors: [{ name: 'Grix Finance' }],
 	viewport: 'width=device-width, initial-scale=1.0',
 	robots: 'index, follow',
@@ -26,30 +27,40 @@ export const metadata: Metadata = {
 	appleWebApp: {
 		capable: true,
 		statusBarStyle: 'black',
-		title: 'Grix Finance',
+		title: 'Grix Finance - Universal DeFi Derivatives Language',
 	},
 	openGraph: {
 		type: 'website',
 		url: 'https://www.grix.finance/',
-		title: 'GRIX | DeFi Options Aggregator',
-		description: 'Unified Liquidity protocol for the DeFi options market',
+		title: 'GRIX | Universal DeFi Derivatives Language',
+		description:
+			'The Universal Language for DeFi Derivatives Interactions. Empower your AI agents with battle-tested toolkits for risk management, position optimization, and strategy execution.',
 		siteName: 'Grix Finance',
 		locale: 'en_US',
 		images: [
 			{
-				url: 'https://cdn.prod.website-files.com/64ee0b5cf326da0c678c499a/656f51799ecc50891f0d5de8_1200x600.png',
-				alt: 'GRIX DeFi Options Aggregator',
+				url: 'https://grix-develop-media.s3.amazonaws.com/Grix-AIunifiedliquidityforDeFioptions.jpg',
+				width: 1200,
+				height: 600,
+				alt: 'GRIX - Universal DeFi Derivatives Language Platform',
+				type: 'image/png',
 			},
 		],
 	},
 	twitter: {
 		card: 'summary_large_image',
-		title: 'GRIX | DeFi Options Aggregator',
-		description: 'Unified Liquidity protocol for the DeFi options market',
+		title: 'GRIX | Universal DeFi Derivatives Language',
+		description:
+			'Empower your AI agents with battle-tested toolkits for DeFi derivatives trading. Access standardized protocol integration, risk management, and strategy execution tools.',
 		site: '@GrixFinance',
 		creator: '@GrixFinance',
 		images: [
-			'https://cdn.prod.website-files.com/64ee0b5cf326da0c678c499a/656f51799ecc50891f0d5de8_1200x600.png',
+			{
+				url: 'https://grix-develop-media.s3.amazonaws.com/Grix-AIunifiedliquidityforDeFioptions.jpg',
+				alt: 'GRIX - Universal DeFi Derivatives Language Platform',
+				width: 1200,
+				height: 600,
+			},
 		],
 	},
 	icons: {
