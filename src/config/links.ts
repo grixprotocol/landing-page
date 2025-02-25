@@ -15,8 +15,8 @@ export const links = {
 		solana: `https://solscan.io/token/${GRIX_ADDRESSES.solana}`,
 	},
 	social: {
-		twitter: "https://twitter.com/GrixFinance",
-		github: "https://github.com/grixprotocol/defi-options-hub",
+		twitter: "https://x.com/GrixFinance",
+		github: "https://github.com/grixprotocol/grix-derivatives-hub",
 		discord: "https://t.co/YPGAhKlcUV",
 		medium: "https://medium.com/@grixfinance",
 		linktree: "https://linktr.ee/grixfinance",

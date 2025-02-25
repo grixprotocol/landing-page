@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Geist } from 'next/font/google';
 import { Providers } from './providers';
 import Script from 'next/script';
@@ -6,6 +6,12 @@ import Script from 'next/script';
 const geist = Geist({
 	subsets: ['latin'],
 });
+
+export const viewport: Viewport = {
+	width: 'device-width',
+	initialScale: 1.0,
+	themeColor: '#000000',
+};
 
 export const metadata: Metadata = {
 	metadataBase: new URL('https://www.grix.finance'),
@@ -15,7 +21,6 @@ export const metadata: Metadata = {
 	keywords:
 		'DeFi derivatives language, AI trading agents, risk management tools, position optimization, strategy execution, ElizaOS integration, enterprise DeFi, protocol integration, derivatives toolkits, agentic trading, GRIX token, decentralized finance, cross-protocol position tools, market analysis framework',
 	authors: [{ name: 'Grix Finance' }],
-	viewport: 'width=device-width, initial-scale=1.0',
 	robots: 'index, follow',
 	applicationName: 'Grix Finance',
 	creator: 'Grix Finance',
@@ -23,7 +28,6 @@ export const metadata: Metadata = {
 	formatDetection: {
 		telephone: false,
 	},
-	themeColor: '#000000',
 	appleWebApp: {
 		capable: true,
 		statusBarStyle: 'black',

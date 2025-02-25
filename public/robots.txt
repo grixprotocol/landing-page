@@ -1,0 +1,12 @@
+# https://www.grix.finance robots.txt
+User-agent: *
+Allow: /
+
+# Important pages
+Allow: /app.grix.finance
+
+# Sitemaps
+Sitemap: https://www.grix.finance/sitemap.xml
+
+# Social media verification
+Allow: /.well-known/ 

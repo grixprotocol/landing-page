@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import React, { useEffect, useState } from "react";
-import { Box, BoxProps, Flex, HStack, Icon, IconButton, Text, Tooltip } from "@chakra-ui/react";
-import { FaDiscord, FaGithub, FaMedium, FaTelegram } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import { SiLinktree } from "react-icons/si";
-import { analytics } from "../../services/analytics";
+import React, { useEffect, useState } from 'react';
+import { Box, BoxProps, Flex, HStack, Icon, IconButton, Text, Tooltip } from '@chakra-ui/react';
+import { FaDiscord, FaGithub, FaMedium, FaTelegram } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
+import { SiLinktree } from 'react-icons/si';
+import { analytics } from '../../services/analytics';
 
 export const DotSeparator = (props: BoxProps) => (
 	<Box
@@ -19,16 +19,16 @@ export const DotSeparator = (props: BoxProps) => (
 );
 
 const socialLinks = [
-	{ icon: FaXTwitter, label: "Twitter", href: "https://twitter.com/GrixFinance" },
+	{ icon: FaXTwitter, label: 'Twitter', href: 'https://x.com/GrixFinance' },
 	{
 		icon: FaGithub,
-		label: "Github",
-		href: "https://github.com/grixprotocol/defi-options-hub",
+		label: 'Github',
+		href: 'https://github.com/grixprotocol/grix-derivatives-hub',
 	},
-	{ icon: FaDiscord, label: "Discord", href: "https://t.co/YPGAhKlcUV" },
-	{ icon: FaMedium, label: "Medium", href: "https://medium.com/@grixfinance" },
-	{ icon: SiLinktree, label: "Linktree", href: "https://linktr.ee/grixfinance" },
-	{ icon: FaTelegram, label: "Telegram", href: "https://t.me/grixfinance" },
+	{ icon: FaDiscord, label: 'Discord', href: 'https://t.co/YPGAhKlcUV' },
+	{ icon: FaMedium, label: 'Medium', href: 'https://medium.com/@grixfinance' },
+	{ icon: SiLinktree, label: 'Linktree', href: 'https://linktr.ee/grixfinance' },
+	{ icon: FaTelegram, label: 'Telegram', href: 'https://t.me/grixfinance' },
 ];
 
 export const FooterLinks = () => {
@@ -40,7 +40,7 @@ export const FooterLinks = () => {
 
 	const handleSocialClick = (label: string) => {
 		analytics.trackSocialLink(label.toLowerCase(), {
-			location: 'footer'
+			location: 'footer',
 		});
 	};
 
@@ -58,7 +58,7 @@ export const FooterLinks = () => {
 			data-new-gr-c-s-check-loaded={undefined}
 		>
 			<HStack spacing={{ base: 3, md: 5 }}>
-				<Text fontSize={{ base: "12px", md: "14px" }} fontWeight="500" color="gray.400">
+				<Text fontSize={{ base: '12px', md: '14px' }} fontWeight="500" color="gray.400">
 					© Grix® 2024
 				</Text>
 				<HStack spacing={{ base: 3, md: 4 }}>
@@ -84,9 +84,9 @@ export const FooterLinks = () => {
 									href={href}
 									onClick={() => handleSocialClick(label)}
 									_hover={{
-										transform: "translateY(-2px)",
-										bg: "whiteAlpha.100",
-										color: "blue.400",
+										transform: 'translateY(-2px)',
+										bg: 'whiteAlpha.100',
+										color: 'blue.400',
 									}}
 									transition="all 0.2s"
 								/>
@@ -105,13 +105,13 @@ export const FooterLinks = () => {
 								href={href}
 								onClick={() => handleSocialClick(label)}
 								_hover={{
-									transform: "translateY(-2px)",
-									bg: "whiteAlpha.100",
-									color: "blue.400",
+									transform: 'translateY(-2px)',
+									bg: 'whiteAlpha.100',
+									color: 'blue.400',
 								}}
 								transition="all 0.2s"
 							/>
-						)
+						),
 					)}
 				</HStack>
 			</HStack>

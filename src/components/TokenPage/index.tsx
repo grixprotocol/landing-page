@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
 	Box,
@@ -10,30 +10,32 @@ import {
 	SimpleGrid,
 	Text,
 	VStack,
-} from "@chakra-ui/react";
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+} from '@chakra-ui/react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
-import { colors } from "@/ds/theme";
-import { DEFAULT_TRADE_LINK } from "@/config/links";
-import { analytics } from "@/services/analytics";
+import { colors } from '@/ds/theme';
+import { DEFAULT_TRADE_LINK } from '@/config/links';
+import { analytics } from '@/services/analytics';
 
-import { PillarMarketplace } from "./components/PillarMarketplace";
-import { NetworkAvailability } from "./components/NetworkAvailability";
-import { FaCheckCircle } from "react-icons/fa";
+import { PillarMarketplace } from './components/PillarMarketplace';
+import { NetworkAvailability } from './components/NetworkAvailability';
+import { FaCheckCircle } from 'react-icons/fa';
 
- 
+const MotionBox = motion(Box);
+const MotionSimpleGrid = motion(SimpleGrid);
+
 const ActionButton = ({
 	children,
 	href,
-	variant = "primary",
-	size = "lg",
+	variant = 'primary',
+	size = 'lg',
 	onClick,
 }: {
 	children: React.ReactNode;
 	href: string;
-	variant?: "primary" | "secondary";
-	size?: "lg" | "md";
+	variant?: 'primary' | 'secondary';
+	size?: 'lg' | 'md';
 	onClick?: () => void;
 }) => (
 	<Button
@@ -42,18 +44,18 @@ const ActionButton = ({
 		href={href}
 		target="_blank"
 		px={8}
-		fontSize={size === "lg" ? "lg" : "md"}
-		height={size === "lg" ? "56px" : "48px"}
-		bgGradient={variant === "primary" ? "linear(to-r, blue.400, teal.400)" : "none"}
-		border={variant === "secondary" ? "2px solid" : "none"}
+		fontSize={size === 'lg' ? 'lg' : 'md'}
+		height={size === 'lg' ? '56px' : '48px'}
+		bgGradient={variant === 'primary' ? 'linear(to-r, blue.400, teal.400)' : 'none'}
+		border={variant === 'secondary' ? '2px solid' : 'none'}
 		borderColor="blue.400"
-		color={variant === "primary" ? "white" : "blue.400"}
+		color={variant === 'primary' ? 'white' : 'blue.400'}
 		_hover={{
-			transform: "translateY(-2px)",
-			bgGradient: variant === "primary" ? "linear(to-r, blue.500, teal.500)" : "none",
-			borderColor: variant === "secondary" ? "teal.400" : "none",
-			color: variant === "secondary" ? "teal.400" : "white",
-			boxShadow: "0 4px 20px rgba(66, 153, 225, 0.4)",
+			transform: 'translateY(-2px)',
+			bgGradient: variant === 'primary' ? 'linear(to-r, blue.500, teal.500)' : 'none',
+			borderColor: variant === 'secondary' ? 'teal.400' : 'none',
+			color: variant === 'secondary' ? 'teal.400' : 'white',
+			boxShadow: '0 4px 20px rgba(66, 153, 225, 0.4)',
 		}}
 		transition="all 0.3s"
 		onClick={onClick}
@@ -63,17 +65,17 @@ const ActionButton = ({
 );
 
 export const TokenPage = () => {
-	const cardBg = "whiteAlpha.50";
-	const cardHoverBg = "whiteAlpha.100";
-	const borderColor = "whiteAlpha.200";
+	const cardBg = 'whiteAlpha.50';
+	const cardHoverBg = 'whiteAlpha.100';
+	const borderColor = 'whiteAlpha.200';
 
 	const featureItems = [
-		"Universal DeFi Derivatives Toolkit",
-		"Standardized Protocol Integration Tools",
-		"Enterprise-Grade Risk Management Tools",
-		"Cross-Protocol Position Tools",
-		"Automated Strategy Implementation Tools",
-		"Real-Time Market Analysis Framework",
+		'Universal DeFi Derivatives Toolkit',
+		'Standardized Protocol Integration Tools',
+		'Enterprise-Grade Risk Management Tools',
+		'Cross-Protocol Position Tools',
+		'Automated Strategy Implementation Tools',
+		'Real-Time Market Analysis Framework',
 	];
 
 	const [ref, inView] = useInView({
@@ -84,7 +86,7 @@ export const TokenPage = () => {
 	const handleFeatureClick = (feature: string, index: number) => {
 		analytics.trackPageInteraction(`feature_click`, {
 			feature_name: feature,
-			position: index + 1
+			position: index + 1,
 		});
 	};
 
@@ -98,20 +100,20 @@ export const TokenPage = () => {
 				maxHeight="100vh"
 				w="full"
 				color="white"
-				overflow={{ base: "auto", md: "auto" }}
+				overflow={{ base: 'auto', md: 'auto' }}
 				position="relative"
 				css={{
-					"&::-webkit-scrollbar": {
-						width: "6px",
+					'&::-webkit-scrollbar': {
+						width: '6px',
 					},
-					"&::-webkit-scrollbar-track": {
-						background: "rgba(0, 0, 0, 0.2)",
+					'&::-webkit-scrollbar-track': {
+						background: 'rgba(0, 0, 0, 0.2)',
 					},
-					"&::-webkit-scrollbar-thumb": {
-						background: "rgba(255, 255, 255, 0.3)",
-						borderRadius: "3px",
-						"&:hover": {
-							background: "rgba(255, 255, 255, 0.4)",
+					'&::-webkit-scrollbar-thumb': {
+						background: 'rgba(255, 255, 255, 0.3)',
+						borderRadius: '3px',
+						'&:hover': {
+							background: 'rgba(255, 255, 255, 0.4)',
 						},
 					},
 				}}
@@ -154,8 +156,8 @@ export const TokenPage = () => {
 										bgGradient="linear(to-r, blue.400, teal.400)"
 										bgClip="text"
 										letterSpacing="tight"
-										lineHeight={{ base: "1.1", md: "1.2" }}
-										fontSize={{ base: "4xl", sm: "5xl", md: "6xl", lg: "7xl" }}
+										lineHeight={{ base: '1.1', md: '1.2' }}
+										fontSize={{ base: '4xl', sm: '5xl', md: '6xl', lg: '7xl' }}
 										maxW="1200px"
 										mb={{ base: 8, md: 10 }}
 										mx="auto"
@@ -172,7 +174,7 @@ export const TokenPage = () => {
 								>
 									<Text
 										as="p"
-										fontSize={{ base: "xl", md: "2xl", lg: "3xl" }}
+										fontSize={{ base: 'xl', md: '2xl', lg: '3xl' }}
 										textAlign="center"
 										color="whiteAlpha.900"
 										maxW="900px"
@@ -189,11 +191,10 @@ export const TokenPage = () => {
 
 						{/* Features Section */}
 						<section aria-labelledby="features-heading">
-							<SimpleGrid
+							<MotionSimpleGrid
 								ref={ref}
 								columns={{ base: 1, md: 2 }}
 								spacing={8}
-								as={motion.div}
 								initial={{ opacity: 0, y: 20 }}
 								animate={inView ? { opacity: 1, y: 0 } : {}}
 							>
@@ -208,9 +209,9 @@ export const TokenPage = () => {
 										borderColor={borderColor}
 										_hover={{
 											bg: cardHoverBg,
-											transform: "translateY(-2px)",
-											boxShadow: "0 4px 20px rgba(66, 153, 225, 0.2)",
-											cursor: 'pointer'
+											transform: 'translateY(-2px)',
+											boxShadow: '0 4px 20px rgba(66, 153, 225, 0.2)',
+											cursor: 'pointer',
 										}}
 										transition="all 0.3s"
 										role="listitem"
@@ -227,23 +228,7 @@ export const TokenPage = () => {
 										</Text>
 									</HStack>
 								))}
-							</SimpleGrid>
-						</section>
-
-						{/* Final CTA Section */}
-						<section aria-label="Final Call to Action">
-							<VStack spacing={6} align="center">
-								<ActionButton 
-									href={DEFAULT_TRADE_LINK}
-									onClick={() => {
-										analytics.trackPageInteraction('buy_grix_click', {
-											section: 'cta'
-										});
-									}}
-								>
-									Buy GRIX
-								</ActionButton>
-							</VStack>
+							</MotionSimpleGrid>
 						</section>
 
 						{/* Marketplace Section */}
@@ -253,6 +238,22 @@ export const TokenPage = () => {
 								cardHoverBg={cardHoverBg}
 								borderColor={borderColor}
 							/>
+						</section>
+
+						{/* Buy GRIX Section */}
+						<section aria-label="Buy GRIX Token" id="grix">
+							<VStack spacing={6} align="center">
+								<ActionButton
+									href={DEFAULT_TRADE_LINK}
+									onClick={() => {
+										analytics.trackPageInteraction('buy_grix_click', {
+											section: 'cta',
+										});
+									}}
+								>
+									Buy GRIX
+								</ActionButton>
+							</VStack>
 						</section>
 
 						{/* Network Availability Section */}
