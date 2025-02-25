@@ -2,7 +2,6 @@ import { GRIX_ADDRESSES } from "./tokens";
 
 export const links = {
 	trade: {
-		ethereum: `https://app.uniswap.org/#/swap?outputCurrency=${GRIX_ADDRESSES.ethereum}`,
 		arbitrum: `https://app.camelot.exchange/?token2=${GRIX_ADDRESSES.arbitrum}&swap=v2`,
 		solana: {
 			raydium: `https://raydium.io/swap/?outputMint=${GRIX_ADDRESSES.solana}&inputMint=sol`,

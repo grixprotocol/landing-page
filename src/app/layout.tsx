@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 	description:
 		'The Universal Language for DeFi Derivatives Interactions. Empower your AI agents with battle-tested toolkits for risk management, position optimization, and strategy execution across leading agentic platforms like ElizaOS.',
 	keywords:
-		'DeFi derivatives language, AI trading agents, risk management tools, position optimization, strategy execution, ElizaOS integration, enterprise DeFi, protocol integration, derivatives toolkits, agentic trading, GRIX token, decentralized finance, cross-protocol position tools, market analysis framework',
+		'DeFi derivatives language, AI trading agents, risk management tools, position optimization, strategy execution, ElizaOS integration, enterprise DeFi, protocol integration, derivatives toolkits, agentic trading, GRIX token, decentralized finance, cross-protocol position tools, market analysis framework, token staking, governance token',
 	authors: [{ name: 'Grix Finance' }],
 	robots: 'index, follow',
 	applicationName: 'Grix Finance',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 		url: 'https://www.grix.finance/',
 		title: 'GRIX | Universal DeFi Derivatives Language',
 		description:
-			'The Universal Language for DeFi Derivatives Interactions. Empower your AI agents with battle-tested toolkits for risk management, position optimization, and strategy execution.',
+			'The Universal Language for DeFi Derivatives Interactions. Access premium features and unlock powerful derivatives trading toolkits with GRIX token. Available on Ethereum, Arbitrum, and Solana.',
 		siteName: 'Grix Finance',
 		locale: 'en_US',
 		images: [
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
 		card: 'summary_large_image',
 		title: 'GRIX | Universal DeFi Derivatives Language',
 		description:
-			'Empower your AI agents with battle-tested toolkits for DeFi derivatives trading. Access standardized protocol integration, risk management, and strategy execution tools.',
+			'Get started with GRIX token - Access standardized protocol integration, risk management, and strategy execution tools. Available on multiple networks.',
 		site: '@GrixFinance',
 		creator: '@GrixFinance',
 		images: [

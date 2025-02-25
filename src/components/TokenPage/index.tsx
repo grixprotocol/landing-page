@@ -22,7 +22,6 @@ import { PillarMarketplace } from './components/PillarMarketplace';
 import { NetworkAvailability } from './components/NetworkAvailability';
 import { FaCheckCircle } from 'react-icons/fa';
 
-const MotionBox = motion(Box);
 const MotionSimpleGrid = motion(SimpleGrid);
 
 const ActionButton = ({
@@ -240,19 +239,57 @@ export const TokenPage = () => {
 							/>
 						</section>
 
-						{/* Buy GRIX Section */}
-						<section aria-label="Buy GRIX Token" id="grix">
-							<VStack spacing={6} align="center">
-								<ActionButton
-									href={DEFAULT_TRADE_LINK}
-									onClick={() => {
-										analytics.trackPageInteraction('buy_grix_click', {
-											section: 'cta',
-										});
-									}}
+						{/* Token Section */}
+						<section
+							aria-label="GRIX Token Information"
+							id="grix"
+							itemScope
+							itemType="https://schema.org/Product"
+						>
+							<VStack spacing={8} align="center">
+								<meta itemProp="name" content="GRIX Token" />
+								<meta
+									itemProp="description"
+									content="GRIX is the native token powering the Universal DeFi Derivatives Language platform"
+								/>
+
+								<Heading
+									as="h2"
+									fontSize={{ base: '3xl', md: '4xl' }}
+									textAlign="center"
+									bgGradient="linear(to-r, blue.400, teal.400)"
+									bgClip="text"
+									mb={4}
 								>
-									Buy GRIX
-								</ActionButton>
+									Get Started with GRIX Token
+								</Heading>
+
+								<Text
+									fontSize={{ base: 'lg', md: 'xl' }}
+									textAlign="center"
+									color="whiteAlpha.900"
+									maxW="800px"
+									mb={6}
+								>
+									Access premium features and unlock powerful derivatives trading
+									toolkits with GRIX token
+								</Text>
+
+								<VStack spacing={4} mt={6}>
+									<ActionButton
+										href={DEFAULT_TRADE_LINK}
+										onClick={() => {
+											analytics.trackPageInteraction('buy_grix_click', {
+												section: 'token',
+											});
+										}}
+									>
+										Buy GRIX
+									</ActionButton>
+									<Text color="gray.400" fontSize="sm">
+										Trade on your preferred network
+									</Text>
+								</VStack>
 							</VStack>
 						</section>
 
