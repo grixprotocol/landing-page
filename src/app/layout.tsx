@@ -91,6 +91,7 @@ export const metadata: Metadata = {
 		'ia:rules_url': '',
 		'ia:rules_url_dev': '',
 		'og:updated_time': '1739804666',
+		'og:logo': '/GrixLogoV2.svg',
 	},
 };
 
