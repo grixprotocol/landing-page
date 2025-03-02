@@ -18,6 +18,7 @@
 		"framer-motion": "^12.4.3",
 		"mixpanel-browser": "^2.48.1",
 		"next": "15.1.7",
+		"posthog-js": "^1.225.0",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",
 		"react-icons": "^5.4.0",

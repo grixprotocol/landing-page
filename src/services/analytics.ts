@@ -1,4 +1,5 @@
 import Mixpanel from 'mixpanel-browser';
+import posthog from 'posthog-js';
 
 // Initialize Mixpanel
 Mixpanel.init('2111331d11fb90732a2aa39342002652', {
@@ -27,30 +28,56 @@ export const ANALYTICS_EVENTS = {
 
 export const analytics = {
   identify: (identifier: string) => {
+    // Track in Mixpanel
     Mixpanel.identify(identifier);
+    
+    // Track in PostHog
+    posthog.identify(identifier);
   },
   track: (eventName: string, props: Record<string, unknown> = {}) => {
+    // Track in Mixpanel
     Mixpanel.track(eventName, props);
+    
+    // Track in PostHog
+    posthog.capture(eventName, props);
   },
   // Page content interactions (pillars, networks, etc)
   trackPageInteraction: (interactionType: string, additionalProps: Record<string, unknown> = {}) => {
-    Mixpanel.track(ANALYTICS_EVENTS.PAGE_INTERACTION, {
+    const properties = {
       interaction_type: interactionType,
       ...additionalProps,
-    });
+    };
+    
+    // Track in Mixpanel
+    Mixpanel.track(ANALYTICS_EVENTS.PAGE_INTERACTION, properties);
+    
+    // Track in PostHog
+    posthog.capture(ANALYTICS_EVENTS.PAGE_INTERACTION, properties);
   },
   // Launch app specific tracking
   trackLaunchApp: (source: string, additionalProps: Record<string, unknown> = {}) => {
-    Mixpanel.track(ANALYTICS_EVENTS.LAUNCH_APP, {
+    const properties = {
       source,
       ...additionalProps,
-    });
+    };
+    
+    // Track in Mixpanel
+    Mixpanel.track(ANALYTICS_EVENTS.LAUNCH_APP, properties);
+    
+    // Track in PostHog
+    posthog.capture(ANALYTICS_EVENTS.LAUNCH_APP, properties);
   },
   // Social and footer links
   trackSocialLink: (platform: string, additionalProps: Record<string, unknown> = {}) => {
-    Mixpanel.track(ANALYTICS_EVENTS.SOCIAL_LINK, {
+    const properties = {
       platform,
       ...additionalProps,
-    });
+    };
+    
+    // Track in Mixpanel
+    Mixpanel.track(ANALYTICS_EVENTS.SOCIAL_LINK, properties);
+    
+    // Track in PostHog
+    posthog.capture(ANALYTICS_EVENTS.SOCIAL_LINK, properties);
   }
 }; 
