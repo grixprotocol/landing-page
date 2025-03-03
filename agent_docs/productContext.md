@@ -1,0 +1,1 @@
+This landing page project exists to provide a well-designed online presence for our users. It solves the problem of establishing a clear, attractive, and informative landing page that can be easily modified and updated. The landing page should work responsively across devices, load quickly, and provide essential information along with call-to-actions. 
