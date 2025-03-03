@@ -41,9 +41,17 @@ function SuspendedPostHogPageView() {
 export function Providers({ children }: { children: React.ReactNode }) {
 	// Initialize PostHog
 	useEffect(() => {
-		// Replace 'YOUR_POSTHOG_API_KEY' with your actual API key
-		posthog.init('phc_1ndM9W27cV3meFtNFwTK6tHC5ndyR2PXQMQMaJD6bxM', {
-			api_host: 'https://app.posthog.com', // or your self-hosted URL
+		// Use environment variables for PostHog configuration
+		const posthogKey = process.env.NEXT_PUBLIC_POSTHOG_KEY;
+		const posthogHost = process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://app.posthog.com';
+		
+		if (!posthogKey) {
+			console.warn('PostHog API key not found in environment variables');
+			return;
+		}
+		
+		posthog.init(posthogKey, {
+			api_host: posthogHost,
 			capture_pageview: false, // Disable automatic pageview capture, as we capture manually
 			loaded: function(posthog) {
 				// Enable debug mode in development

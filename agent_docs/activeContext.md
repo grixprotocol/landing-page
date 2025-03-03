@@ -19,4 +19,9 @@ Recent updates:
   - Removed the PostHog initialization from analytics.ts since it's now handled in providers.tsx
 - Modified the analytics service to send events to both Mixpanel and PostHog
 - Maintained the same event names and properties structure between both systems
-- The PostHog implementation requires the user to replace 'YOUR_POSTHOG_API_KEY' with their actual API key in the providers.tsx file 
+- Moved API keys to environment variables:
+  - Created a .env.local file with environment variables for both services
+  - Updated providers.tsx to use NEXT_PUBLIC_POSTHOG_KEY and NEXT_PUBLIC_POSTHOG_HOST
+  - Updated analytics.ts to use NEXT_PUBLIC_MIXPANEL_TOKEN, NEXT_PUBLIC_MIXPANEL_API_HOST, and NEXT_PUBLIC_MIXPANEL_API_KEY
+  - Added fallback values and error handling if environment variables are missing
+- Added the agent_docs folder to .gitignore to prevent committing the memory bank to the repository 
