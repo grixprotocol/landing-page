@@ -1,47 +1,23 @@
 import Mixpanel from 'mixpanel-browser';
 import posthog from 'posthog-js';
 
-// Initialize Mixpanel
-const initMixpanel = () => {
-  const mixpanelToken = process.env.NEXT_PUBLIC_MIXPANEL_TOKEN;
-  const mixpanelApiHost = process.env.NEXT_PUBLIC_MIXPANEL_API_HOST;
-  const mixpanelApiKey = process.env.NEXT_PUBLIC_MIXPANEL_API_KEY;
-  
-  if (!mixpanelToken) {
-    console.warn('Mixpanel token not found in environment variables');
-    return;
-  }
-  
-  console.log('Initializing Mixpanel with token:', mixpanelToken.substring(0, 4) + '...');
-  console.log('Using API host:', mixpanelApiHost);
-  
-  try {
-    Mixpanel.init(mixpanelToken, {
-      track_pageview: true,
-      persistence: 'localStorage',
-      ignore_dnt: true,
-      batch_requests: false,
-      api_transport: 'XHR',
-      api_method: 'POST',
-      api_payload_format: 'json',
-      api_host: mixpanelApiHost || 'https://internal-api-dev.grix.finance',
-      api_routes: {
-        track: 'data/activity',
-        engage: 'data/account',
-      },
-      xhr_headers: {
-        'x-api-key': mixpanelApiKey || 'Vf4KrqNjAzHLbVgZBb90PYKw797UtVd4A3B5AuZH',
-      },
-    });
-    
-    console.log('Mixpanel initialized successfully');
-  } catch (error) {
-    console.error('Error initializing Mixpanel:', error);
-  }
-};
-
-// Initialize Mixpanel on load
-initMixpanel();
+  Mixpanel.init('2111331d11fb90732a2aa39342002652', {
+    track_pageview: true,
+    persistence: 'localStorage',
+    ignore_dnt: true,
+    batch_requests: false,
+    api_transport: 'XHR',
+    api_method: 'POST',
+    api_payload_format: 'json',
+    api_host: 'https://internal-api-dev.grix.finance',
+    api_routes: {
+      track: 'data/activity',
+      engage: 'data/account',
+    },
+    xhr_headers: {
+      'x-api-key': 'Vf4KrqNjAzHLbVgZBb90PYKw797UtVd4A3B5AuZH',
+    },
+  });
 
 // Note: PostHog is now initialized in src/app/providers.tsx
 // We don't need to initialize it here again
