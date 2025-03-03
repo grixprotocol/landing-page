@@ -12,23 +12,32 @@ const initMixpanel = () => {
     return;
   }
   
-  Mixpanel.init(mixpanelToken, {
-    track_pageview: true,
-    persistence: 'localStorage',
-    ignore_dnt: true,
-    batch_requests: false,
-    api_transport: 'XHR',
-    api_method: 'POST',
-    api_payload_format: 'json',
-    api_host: mixpanelApiHost || 'https://internal-api-dev.grix.finance',
-    api_routes: {
-      track: 'data/activity',
-      engage: 'data/account',
-    },
-    xhr_headers: {
-      'x-api-key': mixpanelApiKey || 'Vf4KrqNjAzHLbVgZBb90PYKw797UtVd4A3B5AuZH',
-    },
-  });
+  console.log('Initializing Mixpanel with token:', mixpanelToken.substring(0, 4) + '...');
+  console.log('Using API host:', mixpanelApiHost);
+  
+  try {
+    Mixpanel.init(mixpanelToken, {
+      track_pageview: true,
+      persistence: 'localStorage',
+      ignore_dnt: true,
+      batch_requests: false,
+      api_transport: 'XHR',
+      api_method: 'POST',
+      api_payload_format: 'json',
+      api_host: mixpanelApiHost || 'https://internal-api-dev.grix.finance',
+      api_routes: {
+        track: 'data/activity',
+        engage: 'data/account',
+      },
+      xhr_headers: {
+        'x-api-key': mixpanelApiKey || 'Vf4KrqNjAzHLbVgZBb90PYKw797UtVd4A3B5AuZH',
+      },
+    });
+    
+    console.log('Mixpanel initialized successfully');
+  } catch (error) {
+    console.error('Error initializing Mixpanel:', error);
+  }
 };
 
 // Initialize Mixpanel on load

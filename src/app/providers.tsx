@@ -3,7 +3,7 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import { theme } from "@/ds/theme";
 import { usePathname, useSearchParams } from "next/navigation";
-import { useEffect, Suspense } from "react";
+import { useEffect, Suspense, useState } from "react";
 import posthog from "posthog-js";
 import { PostHogProvider } from "posthog-js/react";
 
@@ -11,16 +11,20 @@ import { PostHogProvider } from "posthog-js/react";
 function PostHogPageView() {
 	const pathname = usePathname();
 	const searchParams = useSearchParams();
-
+	
 	// Track pageviews
 	useEffect(() => {
-		if (pathname) {
-			let url = window.origin + pathname;
-			if (searchParams.toString()) {
-				url = url + "?" + searchParams.toString();
-			}
+		if (pathname && typeof posthog.capture === 'function') {
+			try {
+				let url = window.origin + pathname;
+				if (searchParams.toString()) {
+					url = url + "?" + searchParams.toString();
+				}
 
-			posthog.capture("$pageview", { $current_url: url });
+				posthog.capture("$pageview", { $current_url: url });
+			} catch (error) {
+				console.error("Error capturing pageview:", error);
+			}
 		}
 	}, [pathname, searchParams]);
 
@@ -39,6 +43,8 @@ function SuspendedPostHogPageView() {
 
 // Combined provider component
 export function Providers({ children }: { children: React.ReactNode }) {
+	const [isPostHogReady, setIsPostHogReady] = useState(false);
+
 	// Initialize PostHog
 	useEffect(() => {
 		// Use environment variables for PostHog configuration
@@ -50,22 +56,32 @@ export function Providers({ children }: { children: React.ReactNode }) {
 			return;
 		}
 		
-		posthog.init(posthogKey, {
-			api_host: posthogHost,
-			capture_pageview: false, // Disable automatic pageview capture, as we capture manually
-			loaded: function(posthog) {
-				// Enable debug mode in development
-				if (process.env.NODE_ENV === 'development') {
-					posthog.debug();
-				}
+		try {
+			// Check if PostHog is already initialized
+			if (typeof posthog.__loaded === 'undefined' || posthog.__loaded === false) {
+				posthog.init(posthogKey, {
+					api_host: posthogHost,
+					capture_pageview: false, // Disable automatic pageview capture, as we capture manually
+					loaded: function(ph) {
+						// Enable debug mode in development
+						if (process.env.NODE_ENV === 'development') {
+							ph.debug();
+						}
+						setIsPostHogReady(true);
+					}
+				});
+			} else {
+				setIsPostHogReady(true);
 			}
-		});
+		} catch (error) {
+			console.error("Error initializing PostHog:", error);
+		}
 	}, []);
 
 	return (
 		<PostHogProvider client={posthog}>
 			<ChakraProvider theme={theme}>
-				<SuspendedPostHogPageView />
+				{isPostHogReady && <SuspendedPostHogPageView />}
 				{children}
 			</ChakraProvider>
 		</PostHogProvider>
