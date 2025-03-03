@@ -9,7 +9,7 @@ import posthog from 'posthog-js';
     api_transport: 'XHR',
     api_method: 'POST',
     api_payload_format: 'json',
-    api_host: 'https://internal-api-dev.grix.finance',
+    api_host: 'https://z61hgkwkn8.execute-api.us-east-1.amazonaws.com/dev',  //'https://internal-api-dev.grix.finance',
     api_routes: {
       track: 'data/activity',
       engage: 'data/account',
