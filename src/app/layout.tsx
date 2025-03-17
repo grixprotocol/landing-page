@@ -70,6 +70,11 @@ export const metadata: Metadata = {
 	icons: {
 		icon: [
 			{
+				url: '/logo.png',
+				type: 'image/png',
+				sizes: '512x512',
+			},
+			{
 				url: '/GrixLogoV2.svg',
 				type: 'image/svg+xml',
 				sizes: 'any',
@@ -95,7 +100,7 @@ export const metadata: Metadata = {
 		'ia:rules_url': '',
 		'ia:rules_url_dev': '',
 		'og:updated_time': '1739804666',
-		'og:logo': '/GrixLogoV2.svg',
+		'og:logo': '/logo.png',
 		'msvalidate.01': '875A6DAAE92712CE0C823F122522AF4A',
 	},
 };
@@ -108,7 +113,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<head>
-				<link rel="icon" href="/GrixLogoV2.svg" type="image/svg+xml" />
+				<link rel="icon" href="/logo.png" type="image/png" />
 				<link rel="apple-touch-icon" href="/apple-icon.png" />
 				{/* Google Tag Manager */}
 				<Script id="google-tag-manager" strategy="afterInteractive">
