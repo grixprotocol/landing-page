@@ -162,7 +162,7 @@ export const TokenPage = () => {
 										mx="auto"
 										display="block"
 									>
-										The Universal Language for DeFi Derivatives Interactions
+										AI-Powered DeFi: 10x Your Derivatives Edge
 									</Heading>
 								</motion.h1>
 
@@ -180,9 +180,7 @@ export const TokenPage = () => {
 										fontWeight="medium"
 										lineHeight="1.6"
 									>
-										Empower your AI agents with battle-tested toolkits for risk
-										management, position optimization, and strategy execution
-										across leading agentic platforms like ElizaOS
+										Get data-driven insights & battle-tested tools, accessible through leading AI agent development platforms and MCP.
 									</Text>
 								</motion.div>
 							</VStack>
