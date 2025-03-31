@@ -1,10 +1,11 @@
 "use client";
 
-import { Box, Flex, Button } from "@chakra-ui/react";
+import { Box, Flex, Button, HStack } from "@chakra-ui/react";
 import Link from "next/link";
 import Image from "next/image";
 import GrixLogoImg from "../../../public/GrixLogo.svg";
 import { analytics } from "../../services/analytics";
+import { DEFAULT_TRADE_LINK } from "../../config/links";
 
 const APP_LINK = "https://app.grix.finance/trade";
 
@@ -58,28 +59,56 @@ export const Header = () => (
 					/>
 				</Box>
 			</Link>
-			<Button
-				as="a"
-				href={APP_LINK}
-				target="_blank"
-				bgGradient="linear(to-r, blue.400, teal.400)"
-				size={{ base: "sm", md: "md" }}
-				px={{ base: 4, md: 8 }}
-				height={{ base: "32px", md: "40px" }}
-				fontSize={{ base: "sm", md: "md" }}
-				color="white"
-				onClick={() => {
-					analytics.trackLaunchApp('header_button');
-				}}
-				_hover={{
-					transform: "translateY(-2px)",
-					bgGradient: "linear(to-r, blue.500, teal.500)",
-					boxShadow: "0 4px 20px rgba(66, 153, 225, 0.4)",
-				}}
-				transition="all 0.3s"
-			>
-				Launch App
-			</Button>
+			<HStack spacing={4}>
+				<Button
+					as="a"
+					href={DEFAULT_TRADE_LINK}
+					target="_blank"
+					variant="outline"
+					size={{ base: "sm", md: "md" }}
+					px={{ base: 4, md: 8 }}
+					height={{ base: "32px", md: "40px" }}
+					fontSize={{ base: "sm", md: "md" }}
+					color="blue.400"
+					borderColor="blue.400"
+					onClick={() => {
+						analytics.trackPageInteraction('buy_grix_click', {
+							section: 'header',
+						});
+					}}
+					_hover={{
+						transform: "translateY(-2px)",
+						borderColor: "teal.400",
+						color: "teal.400",
+						boxShadow: "0 4px 20px rgba(66, 153, 225, 0.4)",
+					}}
+					transition="all 0.3s"
+				>
+					Buy $GRIX
+				</Button>
+				<Button
+					as="a"
+					href={APP_LINK}
+					target="_blank"
+					bgGradient="linear(to-r, blue.400, teal.400)"
+					size={{ base: "sm", md: "md" }}
+					px={{ base: 4, md: 8 }}
+					height={{ base: "32px", md: "40px" }}
+					fontSize={{ base: "sm", md: "md" }}
+					color="white"
+					onClick={() => {
+						analytics.trackLaunchApp('header_button');
+					}}
+					_hover={{
+						transform: "translateY(-2px)",
+						bgGradient: "linear(to-r, blue.500, teal.500)",
+						boxShadow: "0 4px 20px rgba(66, 153, 225, 0.4)",
+					}}
+					transition="all 0.3s"
+				>
+					Launch App
+				</Button>
+			</HStack>
 		</Flex>
 	</Box>
 );
