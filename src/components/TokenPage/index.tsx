@@ -69,12 +69,12 @@ export const TokenPage = () => {
 	const borderColor = 'whiteAlpha.200';
 
 	const featureItems = [
-		'Universal DeFi Derivatives Toolkit',
-		'Standardized Protocol Integration Tools',
-		'Enterprise-Grade Risk Management Tools',
-		'Cross-Protocol Position Tools',
-		'Automated Strategy Implementation Tools',
-		'Real-Time Market Analysis Framework',
+		'Options Data: 10x Insight. Now.',
+		'Perps Data: Predict the Moon.',
+		'AI: Analysis Cheat Code.',
+		'Connect DeFi: Instant Data Tap.',
+		'Plug into AI: Supercharge Your Algos',
+		'Edge: Data-Driven. Dominate.',
 	];
 
 	const [ref, inView] = useInView({
@@ -132,18 +132,18 @@ export const TokenPage = () => {
 
 				<Container
 					maxW="1400px"
-					py={{ base: 24, md: 32, lg: 40 }}
+					py={{ base: 16, md: 20, lg: 24 }}
 					px={{ base: 4, md: 8 }}
 					position="relative"
 				>
-					<VStack spacing={{ base: 28, md: 36, lg: 44 }} align="stretch">
+					<VStack spacing={{ base: 16, md: 20, lg: 24 }} align="stretch">
 						{/* Hero Section */}
 						<motion.section
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
 							transition={{ duration: 1 }}
 						>
-							<VStack spacing={{ base: 12, md: 16, lg: 20 }} align="center">
+							<VStack spacing={{ base: 8, md: 10, lg: 12 }} align="center">
 								<motion.h1
 									initial={{ y: 20, opacity: 0 }}
 									animate={{ y: 0, opacity: 1 }}
@@ -158,7 +158,7 @@ export const TokenPage = () => {
 										lineHeight={{ base: '1.1', md: '1.2' }}
 										fontSize={{ base: '4xl', sm: '5xl', md: '6xl', lg: '7xl' }}
 										maxW="1200px"
-										mb={{ base: 8, md: 10 }}
+										mb={{ base: 4, md: 6 }}
 										mx="auto"
 										display="block"
 									>
@@ -179,54 +179,59 @@ export const TokenPage = () => {
 										maxW="900px"
 										fontWeight="medium"
 										lineHeight="1.6"
+										mb={{ base: 8, md: 10 }}
 									>
 										Get data-driven insights & battle-tested tools, accessible through leading AI agent development platforms and MCP.
 									</Text>
 								</motion.div>
+
+								{/* Features Grid moved into hero section */}
+								<motion.div
+									ref={ref}
+									initial={{ opacity: 0, y: 20 }}
+									animate={inView ? { opacity: 1, y: 0 } : {}}
+									transition={{ duration: 0.8, delay: 0.6 }}
+								>
+									<SimpleGrid
+										columns={{ base: 1, md: 2, lg: 3 }}
+										spacing={{ base: 4, md: 6 }}
+										width="100%"
+										maxW="1200px"
+									>
+										{featureItems.map((item, index) => (
+											<HStack
+												key={index}
+												spacing={4}
+												p={4}
+												bg={cardBg}
+												borderRadius="xl"
+												borderWidth={1}
+												borderColor={borderColor}
+												_hover={{
+													bg: cardHoverBg,
+													transform: 'translateY(-2px)',
+													boxShadow: '0 4px 20px rgba(66, 153, 225, 0.2)',
+													cursor: 'pointer',
+												}}
+												transition="all 0.3s"
+												role="listitem"
+												onClick={() => handleFeatureClick(item, index)}
+											>
+												<Icon
+													as={FaCheckCircle}
+													color="teal.400"
+													boxSize={5}
+													aria-hidden="true"
+												/>
+												<Text color="white" fontSize="lg" fontWeight="medium">
+													{item}
+												</Text>
+											</HStack>
+										))}
+									</SimpleGrid>
+								</motion.div>
 							</VStack>
 						</motion.section>
-
-						{/* Features Section */}
-						<section aria-labelledby="features-heading">
-							<MotionSimpleGrid
-								ref={ref}
-								columns={{ base: 1, md: 2 }}
-								spacing={8}
-								initial={{ opacity: 0, y: 20 }}
-								animate={inView ? { opacity: 1, y: 0 } : {}}
-							>
-								{featureItems.map((item, index) => (
-									<HStack
-										key={index}
-										spacing={6}
-										p={8}
-										bg={cardBg}
-										borderRadius="2xl"
-										borderWidth={1}
-										borderColor={borderColor}
-										_hover={{
-											bg: cardHoverBg,
-											transform: 'translateY(-2px)',
-											boxShadow: '0 4px 20px rgba(66, 153, 225, 0.2)',
-											cursor: 'pointer',
-										}}
-										transition="all 0.3s"
-										role="listitem"
-										onClick={() => handleFeatureClick(item, index)}
-									>
-										<Icon
-											as={FaCheckCircle}
-											color="teal.400"
-											boxSize={6}
-											aria-hidden="true"
-										/>
-										<Text color="white" fontSize="xl">
-											{item}
-										</Text>
-									</HStack>
-								))}
-							</MotionSimpleGrid>
-						</section>
 
 						{/* Marketplace Section */}
 						<section aria-label="Pillar Marketplace">
