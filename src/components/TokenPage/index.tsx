@@ -22,8 +22,6 @@ import { PillarMarketplace } from './components/PillarMarketplace';
 import { NetworkAvailability } from './components/NetworkAvailability';
 import { FaCheckCircle } from 'react-icons/fa';
 
-const MotionSimpleGrid = motion(SimpleGrid);
-
 const ActionButton = ({
 	children,
 	href,
