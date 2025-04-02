@@ -161,7 +161,7 @@ export const PillarMarketplace = ({ cardBg, cardHoverBg, borderColor }: PillarMa
           bgClip="text"
           mb={{ base: 3, md: 4 }}
         >
-          Derivatives Toolkits Marketplace for Agentic Trading
+          Grix: The AI Vision for 10x DeFi Derivatives
         </Heading>
         <Text
           fontSize={{ base: 'lg', md: 'xl', lg: '2xl' }}
@@ -171,8 +171,7 @@ export const PillarMarketplace = ({ cardBg, cardHoverBg, borderColor }: PillarMa
           px={4}
           lineHeight="1.6"
         >
-          Unlock powerful derivatives trading toolkits that power up your trading agents across leading agentic
-          platforms like ElizaOS.
+          Fuel agents & traders with intelligent data, customizable toolkits, and a path to automated alpha in our derivatives marketplace.
         </Text>
       </VStack>
 
