@@ -3,11 +3,12 @@
 import { Box, Flex, Button, HStack } from "@chakra-ui/react";
 import Link from "next/link";
 import Image from "next/image";
+import { FaBook } from "react-icons/fa";
 import GrixLogoImg from "../../../public/GrixLogo.svg";
 import { analytics } from "../../services/analytics";
-import { DEFAULT_TRADE_LINK } from "../../config/links";
 
 const APP_LINK = "https://app.grix.finance/trade";
+const DOCS_LINK = 'https://github.com/grixprotocol';
 
 export const Header = () => (
 	<Box
@@ -62,29 +63,27 @@ export const Header = () => (
 			<HStack spacing={4}>
 				<Button
 					as="a"
-					href={DEFAULT_TRADE_LINK}
+					href={DOCS_LINK}
 					target="_blank"
-					variant="outline"
+					variant="ghost"
 					size={{ base: "sm", md: "md" }}
-					px={{ base: 4, md: 8 }}
 					height={{ base: "32px", md: "40px" }}
 					fontSize={{ base: "sm", md: "md" }}
-					color="blue.400"
-					borderColor="blue.400"
+					color="gray.300"
+					leftIcon={<FaBook />}
 					onClick={() => {
-						analytics.trackPageInteraction('buy_grix_click', {
+						analytics.trackPageInteraction('docs_click', {
 							section: 'header',
 						});
 					}}
 					_hover={{
 						transform: "translateY(-2px)",
-						borderColor: "teal.400",
-						color: "teal.400",
-						boxShadow: "0 4px 20px rgba(66, 153, 225, 0.4)",
+						color: "blue.400",
+						bg: "whiteAlpha.100"
 					}}
 					transition="all 0.3s"
 				>
-					Buy $GRIX
+					Docs
 				</Button>
 				<Button
 					as="a"
@@ -92,7 +91,7 @@ export const Header = () => (
 					target="_blank"
 					bgGradient="linear(to-r, blue.400, teal.400)"
 					size={{ base: "sm", md: "md" }}
-					px={{ base: 4, md: 8 }}
+					px={{ base: 4, md: 6 }}
 					height={{ base: "32px", md: "40px" }}
 					fontSize={{ base: "sm", md: "md" }}
 					color="white"
