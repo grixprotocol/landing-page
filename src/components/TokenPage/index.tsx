@@ -160,7 +160,7 @@ export const TokenPage = () => {
 										mx="auto"
 										display="block"
 									>
-										AI-Powered DeFi: 10x Your Derivatives Edge
+										AI-Powered DeFi MCP: 10x Your Derivatives Edge
 									</Heading>
 								</motion.h1>
 
