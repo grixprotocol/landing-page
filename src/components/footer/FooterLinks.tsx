@@ -23,7 +23,7 @@ const socialLinks = [
 	{
 		icon: FaGithub,
 		label: 'Github',
-		href: 'https://github.com/grixprotocol/grix-derivatives-hub',
+		href: 'https://github.com/grixprotocol',
 	},
 	{ icon: FaDiscord, label: 'Discord', href: 'https://t.co/YPGAhKlcUV' },
 	{ icon: FaMedium, label: 'Medium', href: 'https://medium.com/@grixfinance' },
