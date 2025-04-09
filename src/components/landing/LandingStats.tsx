@@ -1,12 +1,7 @@
-import { Box, Heading, SimpleGrid, Text, VStack, Link, HStack } from "@chakra-ui/react";
-import { FiArrowRight } from "react-icons/fi";
+import { Box, Heading, SimpleGrid, Text, VStack } from "@chakra-ui/react";
 
-interface StatsProps {
-	cardBg?: string;
-	borderColor?: string;
-}
 
-export const LandingStats = ({ cardBg, borderColor }: StatsProps) => (
+export const LandingStats = () => (
 	<section>
 		<VStack spacing={8} align="center" w="full" maxW="1200px" mx="auto">
 			<Heading

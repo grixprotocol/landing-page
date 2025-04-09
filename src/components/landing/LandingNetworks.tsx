@@ -1,20 +1,5 @@
-import {
-	Box,
-	Button,
-	Flex,
-	Heading,
-	HStack,
-	Icon,
-	Link,
-	SimpleGrid,
-	Text,
-	VStack,
-} from "@chakra-ui/react";
-import { motion } from "framer-motion";
-import { FiExternalLink, FiCopy } from "react-icons/fi";
-import { HiOutlineClipboardCopy } from "react-icons/hi";
-
-const MotionBox = motion(Box);
+import { Box, Button, Heading, HStack, Link, SimpleGrid, Text, VStack } from "@chakra-ui/react";
+import { FiExternalLink } from "react-icons/fi";
 
 interface NetworkCardProps {
 	title: string;

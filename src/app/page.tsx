@@ -23,7 +23,7 @@ export default function LandingPage() {
 				<LandingHero />
 
 				{/* Key Stats Section */}
-				<LandingStats cardBg={cardBg} borderColor={borderColor} />
+				<LandingStats />
 
 				{/* Integrated Protocols Section */}
 				<LandingProtocols cardBg={cardBg} borderColor={borderColor} />
