@@ -1,74 +1,11 @@
-import {
-	Box,
-	Button,
-	Flex,
-	Heading,
-	HStack,
-	Icon,
-	Link,
-	SimpleGrid,
-	Text,
-	VStack,
-} from "@chakra-ui/react";
-import { motion } from "framer-motion";
+import { Box, Heading, HStack, Icon, Link, SimpleGrid, Text, VStack } from "@chakra-ui/react";
 import { FaGithub } from "react-icons/fa";
 import { HiCode, HiDatabase, HiDocument } from "react-icons/hi";
-
-import { PrimaryButton } from "./common/Buttons";
-
-const MotionBox = motion(Box);
 
 interface AudienceProps {
 	cardBg: string;
 	borderColor: string;
 }
-
-const features = {
-	developers: [
-		{
-			title: "Comprehensive Documentation",
-			description: "Access detailed guides, API references, and integration examples",
-			icon: "📚",
-		},
-		{
-			title: "SDKs & Libraries",
-			description: "Ready-to-use libraries for multiple programming languages",
-			icon: "🛠️",
-		},
-		{
-			title: "Community Support",
-			description: "Active developer community and dedicated support channels",
-			icon: "👥",
-		},
-		{
-			title: "API Access",
-			description: "RESTful APIs with extensive endpoints for all platform features",
-			icon: "🔌",
-		},
-	],
-	traders: [
-		{
-			title: "Advanced Analytics",
-			description: "Real-time market data and sophisticated analysis tools",
-			icon: "📊",
-		},
-		{
-			title: "AI Insights",
-			description: "Machine learning powered trading signals and recommendations",
-			icon: "🤖",
-		},
-		{
-			title: "Risk Management",
-			description: "Comprehensive tools for position and portfolio management",
-			icon: "🛡️",
-		},
-		{
-			title: "Multi-Protocol Access",
-			description: "Unified interface for multiple derivatives protocols",
-			icon: "🌐",
-		},
-	],
-};
 
 export const DevelopersSection = ({ cardBg, borderColor }: AudienceProps) => (
 	<section aria-label="For Developers">
