@@ -9,8 +9,6 @@ interface NetworkCardProps {
 	buttons?: { label: string; href: string }[];
 }
 
-
-
 const NetworkCard = ({ title, features, tokenAddress, explorerUrl, buttons }: NetworkCardProps) => {
 	const displayAddress = tokenAddress.slice(0, 6) + "..." + tokenAddress.slice(-4);
 
