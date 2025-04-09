@@ -43,17 +43,13 @@ export default function LandingPage() {
 				/>
 
 				{/* For Developers Section */}
-				<DevelopersSection cardBg={cardBg} borderColor={borderColor} />
+				<DevelopersSection borderColor={borderColor} />
 
 				{/* For Traders Section */}
-				<TradersSection cardBg={cardBg} borderColor={borderColor} />
+				<TradersSection borderColor={borderColor} />
 
 				{/* Network Availability Section */}
-				<LandingNetworks
-					cardBg={cardBg}
-					cardHoverBg={cardHoverBg}
-					borderColor={borderColor}
-				/>
+				<LandingNetworks />
 
 				<LandingJoin />
 			</VStack>

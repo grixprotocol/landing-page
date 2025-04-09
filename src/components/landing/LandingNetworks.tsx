@@ -83,7 +83,7 @@ const NetworkCard = ({ title, features, tokenAddress, explorerUrl, buttons }: Ne
 	);
 };
 
-export const LandingNetworks = ({ cardBg, cardHoverBg, borderColor }: NetworksProps) => (
+export const LandingNetworks = () => (
 	<section aria-label="Networks">
 		<VStack spacing={12} align="center" w="full" maxW="1200px" mx="auto">
 			<Heading

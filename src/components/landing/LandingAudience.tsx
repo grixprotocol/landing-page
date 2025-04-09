@@ -3,11 +3,10 @@ import { FaGithub } from "react-icons/fa";
 import { HiCode, HiDatabase, HiDocument } from "react-icons/hi";
 
 interface AudienceProps {
-	cardBg: string;
 	borderColor: string;
 }
 
-export const DevelopersSection = ({ cardBg, borderColor }: AudienceProps) => (
+export const DevelopersSection = ({  borderColor }: AudienceProps) => (
 	<section aria-label="For Developers">
 		<VStack spacing={12} align="center" w="full" maxW="1200px" mx="auto">
 			<Heading
@@ -202,7 +201,7 @@ export const DevelopersSection = ({ cardBg, borderColor }: AudienceProps) => (
 	</section>
 );
 
-export const TradersSection = ({ cardBg, borderColor }: AudienceProps) => (
+export const TradersSection = ({ borderColor }: AudienceProps) => (
 	<section aria-label="For Traders">
 		<VStack spacing={12} align="center" w="full" maxW="1200px" mx="auto">
 			<Heading
