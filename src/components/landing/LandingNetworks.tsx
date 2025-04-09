@@ -9,11 +9,7 @@ interface NetworkCardProps {
 	buttons?: { label: string; href: string }[];
 }
 
-interface NetworksProps {
-	cardBg: string;
-	cardHoverBg: string;
-	borderColor: string;
-}
+
 
 const NetworkCard = ({ title, features, tokenAddress, explorerUrl, buttons }: NetworkCardProps) => {
 	const displayAddress = tokenAddress.slice(0, 6) + "..." + tokenAddress.slice(-4);
