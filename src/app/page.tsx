@@ -1,29 +1,62 @@
 "use client";
 
- import { Box } from "@chakra-ui/react";
-import { Header } from "@/components/header";
-import { TokenPage } from "@/components/TokenPage";
-import { motion } from "framer-motion";
-import dynamic from "next/dynamic";
+import { Container, VStack } from "@chakra-ui/react";
 
-export default function Page() {
-		const Footer = dynamic(() => import("@/components/footer").then((mod) => mod.Footer), {
-			ssr: false,
-		});
+import { DevelopersSection, TradersSection } from "@/components/landing/LandingAudience";
+import { LandingFeatures } from "@/components/landing/LandingFeatures";
+import { LandingHero } from "@/components/landing/LandingHero";
+import { LandingNetworks } from "@/components/landing/LandingNetworks";
+import { LandingProducts } from "@/components/landing/LandingProducts";
+import { LandingProtocols } from "@/components/landing/LandingProtocols";
+import { LandingStats } from "@/components/landing/LandingStats";
+import { LandingJoin } from "@/components/landing/LandingJoin";
+
+export default function LandingPage() {
+	const cardBg = "rgba(17, 25, 40, 0.75)";
+	const cardHoverBg = "rgba(17, 25, 40, 0.9)";
+	const borderColor = "whiteAlpha.200";
+
 	return (
-		<Box>
-			<Header />
-			<Box
-				as={motion.div}
-				initial={{ opacity: 0, y: 20 }}
-				animate={{ opacity: 1, y: 0 }}
-				pt="72px"
-				minH="100vh"
-				pb="80px"
-			>
-				<TokenPage />
-			</Box>
-			<Footer />
-		</Box>
+		<Container maxW="full" p={0}>
+			<VStack spacing={24} align="stretch" py={16}>
+				{/* Hero Section */}
+				<LandingHero />
+
+				{/* Key Stats Section */}
+				<LandingStats cardBg={cardBg} borderColor={borderColor} />
+
+				{/* Integrated Protocols Section */}
+				<LandingProtocols cardBg={cardBg} borderColor={borderColor} />
+
+				{/* Core Products Section */}
+				<LandingProducts
+					cardBg={cardBg}
+					cardHoverBg={cardHoverBg}
+					borderColor={borderColor}
+				/>
+
+				{/* Features Section */}
+				<LandingFeatures
+					cardBg={cardBg}
+					cardHoverBg={cardHoverBg}
+					borderColor={borderColor}
+				/>
+
+				{/* For Developers Section */}
+				<DevelopersSection cardBg={cardBg} borderColor={borderColor} />
+
+				{/* For Traders Section */}
+				<TradersSection cardBg={cardBg} borderColor={borderColor} />
+
+				{/* Network Availability Section */}
+				<LandingNetworks
+					cardBg={cardBg}
+					cardHoverBg={cardHoverBg}
+					borderColor={borderColor}
+				/>
+
+				<LandingJoin />
+			</VStack>
+		</Container>
 	);
 }
