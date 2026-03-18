@@ -7,8 +7,8 @@ import { FaBook } from "react-icons/fa";
 import GrixLogoImg from "../../../public/GrixLogo.svg";
 import { analytics } from "../../services/analytics";
 
-const APP_LINK = "https://app.grix.finance/trade";
-const DOCS_LINK = 'https://grix-1.gitbook.io/grix';
+const APP_LINK = "https://github.com/grixprotocol/interface";
+const DOCS_LINK = "https://github.com/grixprotocol/sdk";
 
 export const Header = () => (
 	<Box

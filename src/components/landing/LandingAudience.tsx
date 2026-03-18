@@ -139,7 +139,7 @@ export const DevelopersSection = ({  borderColor }: AudienceProps) => (
 
 					<HStack spacing={4} justify="center" flexWrap={{ base: "wrap", md: "nowrap" }}>
 						<Link
-							href="https://app.grix.finance/api"
+							href="https://github.com/grixprotocol/sdk"
 							bg="rgba(147, 51, 234, 0.3)"
 							color="white"
 							px={6}
@@ -157,7 +157,7 @@ export const DevelopersSection = ({  borderColor }: AudienceProps) => (
 							</HStack>
 						</Link>
 						<Link
-							href="https://docs.grix.finance"
+							href="https://github.com/grixprotocol/sdk"
 							bg="rgba(59, 130, 246, 0.3)"
 							color="white"
 							px={6}
@@ -231,7 +231,7 @@ export const TradersSection = ({ borderColor }: AudienceProps) => (
 							Compare options prices across multiple DeFi platforms
 						</Text>
 						<Link
-							href="https://app.grix.finance/compare"
+							href="https://github.com/grixprotocol/interface"
 							color="blue.400"
 							fontSize="lg"
 							display="flex"
@@ -251,7 +251,7 @@ export const TradersSection = ({ borderColor }: AudienceProps) => (
 							Comprehensive unified view of options prices
 						</Text>
 						<Link
-							href="https://app.grix.finance/optionsMatrix?asset=BTC&optionType=call"
+							href="https://github.com/grixprotocol/interface"
 							color="purple.400"
 							fontSize="lg"
 							display="flex"
@@ -271,7 +271,7 @@ export const TradersSection = ({ borderColor }: AudienceProps) => (
 							Track positions and monitor orders in real-time
 						</Text>
 						<Link
-							href="https://app.grix.finance/portfolio?ordersTableType=LiveOrders"
+							href="https://github.com/grixprotocol/interface"
 							color="green.400"
 							fontSize="lg"
 							display="flex"

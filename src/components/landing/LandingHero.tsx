@@ -54,8 +54,8 @@ export const LandingHero = () => {
 				</Text>
 
 				<HStack spacing={6} pt={4}>
-					<PrimaryButton href="https://app.grix.finance">Launch App</PrimaryButton>
-					<SecondaryButton href="https://app.grix.finance/calypso/lobby">
+					<PrimaryButton href="https://github.com/grixprotocol/interface">View on GitHub</PrimaryButton>
+					<SecondaryButton href="https://github.com/grixprotocol/options-perps-derivatives-mcp">
 						AI Playground
 					</SecondaryButton>
 				</HStack>

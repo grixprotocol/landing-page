@@ -95,7 +95,7 @@ export const LandingJoin = () => (
 
 			<Button
 				as="a"
-				href="https://app.grix.finance"
+				href="https://github.com/grixprotocol"
 				size="lg"
 				px={8}
 				py={6}

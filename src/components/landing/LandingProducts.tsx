@@ -17,8 +17,8 @@ const products = [
 		description: "Compare options prices, view options matrices, and manage positions",
 		icon: "🖥️",
 		color: "green",
-		buttonText: "Launch App",
-		href: "https://app.grix.finance",
+		buttonText: "View on GitHub",
+		href: "https://github.com/grixprotocol/interface",
 	},
 	{
 		title: "AI Agent Playground",
@@ -26,7 +26,7 @@ const products = [
 		icon: "🤖",
 		color: "purple",
 		buttonText: "Start Building",
-		href: "https://app.grix.finance/calypso/lobby",
+		href: "https://github.com/grixprotocol/options-perps-derivatives-mcp",
 	},
 ];
 
