@@ -109,7 +109,7 @@ export const LandingJoin = () => (
 					bgGradient: "linear(to-r, blue.600, teal.600)",
 				}}
 			>
-				Launch App
+				View on GitHub
 			</Button>
 		</VStack>
 	</Box>
