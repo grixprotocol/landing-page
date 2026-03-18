@@ -105,7 +105,7 @@ export const Header = () => (
 					}}
 					transition="all 0.3s"
 				>
-					Launch App
+					View on GitHub
 				</Button>
 			</HStack>
 		</Flex>
